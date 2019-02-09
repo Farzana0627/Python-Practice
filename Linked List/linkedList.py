@@ -51,6 +51,8 @@ class SLinkedList:
 			prev=current
 			current= tempNext
 		self.headval=prev
+
+
 		
 	def remove(self, node):
 		current= self.headval
@@ -67,6 +69,14 @@ class SLinkedList:
 				prev=current
 				current=current.nextval
 
+def getMiddle(head):
+	tempA= head
+	tempB= head
+	while( tempB is not None and tempB.nextval is not None):
+		tempB= tempB.nextval.nextval
+		tempA= tempA.nextval
+
+	print ("Middle value of the linked list: ", tempA.dataval, "\n")
 #creation and traversal
 
 list1= SLinkedList()
@@ -74,7 +84,9 @@ list1.headval= Node(1)
 e2= Node(2)
 e3= Node(3)
 e4= Node(4)
+e5= Node(5)
 list1.headval.nextval= e2
+e4.nextval= e5
 e3.nextval=e4
 e2.nextval= e3
 
@@ -96,6 +108,9 @@ list1.inBetween(list1.headval.nextval.nextval,midNode)
 print("List1:\n")
 list1.listPrint()
 
+
+print("Middle of List1:\n")
+getMiddle(list1.headval)
 #Reversing a one way linked list
 
 print("Reverse:\n")
@@ -108,6 +123,8 @@ list1.listPrint()
 print("Removed:\n")
 list1.remove(Node(5))
 list1.listPrint()
+
+
 
 
 
